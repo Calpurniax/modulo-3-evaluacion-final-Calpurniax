@@ -27,6 +27,17 @@ function App() {
 
   //filtrar el array según el input de búsqueda
   const filteredCharacters = characters
+    .sort((a, b) => {
+      const nameA = a.name.toLowerCase();
+      const nameB = b.name.toLowerCase();
+      if (nameA < nameB) {
+        return -1
+      } else if (nameA > nameB) {
+        return 1
+      } else {
+        return 0
+      }
+    })
     .filter((character) => {
       if (searchByName !== '') {
         return character.name.toLowerCase().includes(searchByName)
