@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import { getCharacters } from '../services/api';
 import CharacterList from './CharacterList';
 import Filters from './Filters';
+import { Routes, Route } from "react-router-dom";
+import CharacterDetail from './CharacterDetail';
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -35,8 +37,15 @@ function App() {
   return (
     <div className='App'>
       <h1>Personajes de Rick & Morty</h1>
-      <Filters handleSearch={handleSearch} />
-      <CharacterList characters={filteredCharacters} />
+      <Routes>
+        <Route path='/' element={
+          <>
+            <Filters handleSearch={handleSearch} searchByName={searchByName} />
+            <CharacterList characters={filteredCharacters} />
+          </>
+        } />
+        <Route path='/CharacterDetail/:id' element={<CharacterDetail characters={filteredCharacters} />} />
+      </Routes>
     </div>
   );
 }
