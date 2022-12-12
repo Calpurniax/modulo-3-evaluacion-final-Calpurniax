@@ -1,6 +1,7 @@
 import '../styles/App.scss';
 import { useState, useEffect } from 'react';
 import { getCharacters } from '../services/api';
+import CharacterList from './CharacterList';
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -12,10 +13,12 @@ function App() {
 
     })
   }, []);
+
   console.log(characters)
   return (
     <div className='App'>
       <h1>madre mía</h1>
+      <CharacterList characters={characters} />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 function getCharacters() {
-    return fetch('https://rickandmortyapi.com/api/character')
+    return fetch('https://raw.githubusercontent.com/Adalab/rick-y-morty/master/data/rick-y-morty.json')
         .then((response) =>
             response.json()
         )
@@ -20,3 +20,7 @@ function getCharacters() {
         })
 }
 export { getCharacters };
+
+// https://raw.githubusercontent.com/Adalab/rick-y-morty/master/data/rick-y-morty.json
+//(esta es la buena)
+//https://rickandmortyapi.com/api/character 
