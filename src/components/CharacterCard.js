@@ -9,11 +9,7 @@ const CharacterCard = ({ character }) => {
                     <img src={character.img} alt={`foto de ${character.name}`}>
                     </img>
                     <h2>{character.name}</h2>
-                    <ul>
-                        <li>Origen:{character.origin}</li>
-                        <li>Status:{character.status}</li>
-                        <li>Número de episodios en los que aparece:{character.episodes}</li>
-                    </ul>
+                    <p>Especie: {character.species}</p>
                 </article>
             </Link>
         </li>
