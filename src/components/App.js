@@ -16,6 +16,8 @@ function App() {
       setCharacters(data)
 
     })
+
+
   }, []);
 
   //recibe el input de búsqueda y lo guarda
@@ -41,7 +43,7 @@ function App() {
         <Route path='/' element={
           <>
             <Filters handleSearch={handleSearch} searchByName={searchByName} />
-            <CharacterList characters={filteredCharacters} />
+            {filteredCharacters.length > 0 ? <CharacterList characters={filteredCharacters} /> : <p>No hay resultados para tu búsqueda</p>}
           </>
         } />
         <Route path='/CharacterDetail/:id' element={<CharacterDetail characters={filteredCharacters} />} />
