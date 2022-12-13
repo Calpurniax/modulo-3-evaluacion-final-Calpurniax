@@ -2,13 +2,15 @@ import '../styles/components/Filters.scss';
 import FilterByName from "./FilterByName";
 import FilterBySpecies from "./FilterBySpecies";
 import PropTypes from 'prop-types';
+import FilterByPlanet from './FilterByPlanet';
 
-const Filters = ({ handleSearch, searchByName, species, handleSpecie, searchBySpecies }) => {
+const Filters = ({ handleSearch, searchByName, species, handleSpecie, searchBySpecies, planets, handlePlanet, searchByPlanet }) => {
     const handleSubmit = (ev) => { ev.preventDefault() }
     return (
         <form onSubmit={handleSubmit} className='form'>
             <FilterBySpecies species={species} handleSpecie={handleSpecie} searchBySpecies={searchBySpecies} />
             <FilterByName handleSearch={handleSearch} searchByName={searchByName} />
+            <FilterByPlanet planets={planets} handlePlanet={handlePlanet} searchByPlanet={searchByPlanet} />
 
         </form>
     )
@@ -19,5 +21,7 @@ Filters.propTypes = {
     species: PropTypes.array,
     handleSearch: PropTypes.func,
     searchByName: PropTypes.string,
+    planets: PropTypes.array,
+    searchByPlanet: PropTypes.array,
 }
 export default Filters

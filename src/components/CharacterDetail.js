@@ -22,16 +22,13 @@ const CharacterDetail = ({ characters }) => {
                     </article>
                     <Link to={'/'} className="detail__link"><i className="fa-solid fa-backward"></i> Volver al inicio</Link>
                 </section >
-
             )
         } else {
             return <p>Lo sentimos, no existe este personaje</p>
         }
-
     } else {
         return <p>Cargando personaje</p>
     }
-
 };
 CharacterDetail.propTypes = {
     characters: PropTypes.array,

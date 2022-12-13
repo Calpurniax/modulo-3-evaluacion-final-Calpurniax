@@ -11,6 +11,7 @@ function App() {
   const [characters, setCharacters] = useState([]);
   const [searchByName, setSeachByName] = useState('');
   const [searchBySpecies, setSearchBySpecies] = useState('all');
+  const [searchByPlanet, setSearchByPlanet] = useState([]);
 
 
   //llamada a la API
@@ -26,6 +27,15 @@ function App() {
   }
   const handleSpecie = (value) => {
     setSearchBySpecies(value)
+  }
+  const handlePlanet = (value) => {
+    debugger;
+    if (searchByPlanet.includes(value)) {
+      const index = searchByPlanet.indexOf(value)
+      searchByPlanet.splice(index, 1);
+      setSearchByPlanet([...searchByPlanet])
+    }
+    setSearchByPlanet([...searchByPlanet, value])
   }
 
   //filtrar el array según los input
@@ -55,24 +65,33 @@ function App() {
 
   //crear el array de species
   const getSpecies = () => {
-    const ArrayofSpecies = characters.map(each => each.species)
-    const filterSpecies = ArrayofSpecies
+    const arrayOfSpecies = characters.map(each => each.species)
+    const filterSpecies = arrayOfSpecies
       .sort()
       .filter((each, index) => {
-        return ArrayofSpecies.indexOf(each) === index;
+        return arrayOfSpecies.indexOf(each) === index;
 
       })
     return filterSpecies
 
   }
-
+  //crear el array de orígenes
+  const getPlanets = () => {
+    const arrayOfPlanets = characters.map(each => each.origin)
+    const filterPlanets = arrayOfPlanets
+      .sort()
+      .filter((each, index) => {
+        return arrayOfPlanets.indexOf(each) === index;
+      })
+    return filterPlanets
+  }
   return (
     <div className='App'>
       <Header />
       <Routes>
         <Route path='/' element={
           <>
-            <Filters handleSearch={handleSearch} searchByName={searchByName} species={getSpecies()} handleSpecie={handleSpecie} searchBySpecies={searchBySpecies} />
+            <Filters handleSearch={handleSearch} searchByName={searchByName} species={getSpecies()} handleSpecie={handleSpecie} searchBySpecies={searchBySpecies} planets={getPlanets()} handlePlanet={handlePlanet} searchByPlanet={searchByPlanet} />
             {filteredCharacters.length > 0 ? <CharacterList characters={filteredCharacters} /> : <p>No hay resultados para tu búsqueda</p>}
           </>
         } />
