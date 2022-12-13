@@ -1,3 +1,4 @@
+import '../styles/components/CharacterDetail.scss';
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 const CharacterDetail = ({ characters }) => {
@@ -6,18 +7,18 @@ const CharacterDetail = ({ characters }) => {
         const characterFound = characters.find(each => each.id === parseInt(id))
         if (characterFound) {
             return (
-                <section>
-                    <article id={characterFound.id}>
+                <section className="detail">
+                    <article id={characterFound.id} className="detail__article">
                         <img src={characterFound.img} alt={`Foto de ${characterFound.name}`} />
-                        <h2>{characterFound.name}</h2>
-                        <p>Especie: {characterFound.species}</p>
-                        <ul>
-                            <li>Origen:{characterFound.origin}</li>
-                            <li>Status:{characterFound.status}</li>
-                            <li>Número de episodios en los que aparece:{characterFound.episodes}</li>
+                        <h2 className="detail__article__name">{characterFound.name}</h2>
+                        <ul className="detail__article__list">
+                            <li className="detail__article__list--element">Especie: {characterFound.species}</li>
+                            <li className="detail__article__list--element">Origen: {characterFound.origin}</li>
+                            <li className="detail__article__list--element">Estatus: {characterFound.status}</li>
+                            <li className="detail__article__list--element">Número de episodios en los que aparece: {characterFound.episodes}</li>
                         </ul>
                     </article>
-                    <Link to={'/'}>Volver al inicio</Link>
+                    <Link to={'/'} className="detail__link"><i className="fa-solid fa-backward"></i> Volver al inicio</Link>
                 </section >
 
             )

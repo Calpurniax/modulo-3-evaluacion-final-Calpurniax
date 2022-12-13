@@ -5,6 +5,7 @@ import CharacterList from './CharacterList';
 import Filters from './Filters';
 import { Routes, Route } from "react-router-dom";
 import CharacterDetail from './CharacterDetail';
+import Header from './Header';
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -67,7 +68,7 @@ function App() {
 
   return (
     <div className='App'>
-      <h1>Personajes de Rick & Morty</h1>
+      <Header />
       <Routes>
         <Route path='/' element={
           <>

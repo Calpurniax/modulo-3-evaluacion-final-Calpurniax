@@ -1,0 +1,33 @@
+.detail {
+    &__article {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+
+        &__name {
+            text-align: center;
+            font-size: 2rem;
+            padding: 1rem;
+            border-bottom: solid 0.1rem;
+            margin: 0.7rem;
+        }
+
+        &__list {
+            margin-left: 1rem;
+            margin-bottom: 1rem;
+
+            &--element {
+                padding: 0.5rem;
+            }
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+        margin-left: 1rem;
+        padding: 0.5rem;
+        font-size: 1.2rem;
+    }
+}
