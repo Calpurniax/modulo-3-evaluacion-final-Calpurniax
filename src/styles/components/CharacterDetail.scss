@@ -1,9 +1,8 @@
+@import "../core/mixin.scss";
+
 .detail {
     &__article {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        @include flexcolumn;
         font-size: 1.5rem;
 
         &__name {

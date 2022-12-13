@@ -9,3 +9,10 @@
         @content
     }
 }
+
+@mixin flexcolumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,36 @@
+@import "../core/mixin.scss";
+
+.card {
+    @include flexcolumn;
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    list-style: none;
+
+    &__link {
+        text-decoration: none;
+    }
+
+    &__article {
+        @include flexcolumn;
+
+        &__title {
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+
+        &__img {
+            width: 80%;
+            margin-bottom: 0.5rem;
+        }
+
+        &__species {
+            font-size: 1.1rem;
+            border-bottom: solid 0.1rem;
+            padding-bottom: 1rem;
+            margin: 0 0.8rem 0 0.8rem;
+
+        }
+    }
+
+}

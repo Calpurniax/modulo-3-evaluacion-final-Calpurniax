@@ -6,10 +6,10 @@ const FilterByName = ({ handleSearch, searchByName }) => {
         handleSearch(ev.target.value.toLowerCase())
     }
     return (
-        <>
-            <label htmlFor="name">Busca por nombre</label>
+        <div className='form__name'>
+            <label htmlFor="name" className='form__name__label'>Busca por nombre</label>
             <input type="text" name="name" id="name" onInput={handleInput} value={searchByName} />
-        </>
+        </div>
     )
 };
 FilterByName.propTypes = {

@@ -1,2 +1,7 @@
 @import "core/reset";
 @import "core/mixin.scss";
+@import 'core/variables.scss';
+
+* {
+    font-family: $font-default;
+}
