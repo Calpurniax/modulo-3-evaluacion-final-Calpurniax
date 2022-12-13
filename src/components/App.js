@@ -9,12 +9,13 @@ import CharacterDetail from './CharacterDetail';
 function App() {
   const [characters, setCharacters] = useState([]);
   const [searchByName, setSeachByName] = useState('');
+  //const [species, setSpecies] = useState([]);
+
 
   //llamada a la API
   useEffect(() => {
     getCharacters().then((data) => {
       setCharacters(data)
-
     })
 
 
@@ -45,15 +46,23 @@ function App() {
         return true
       }
     })
+  //crear el array de species
+  const getSpecies = () => {
+    const ArrayofSpecies = characters.map(each => each.species)
+    const filterSpecies = ArrayofSpecies.filter((each, index) => {
+      return ArrayofSpecies.indexOf(each) === index;
 
-  console.log(characters)
+    })
+    return filterSpecies
+
+  }
   return (
     <div className='App'>
       <h1>Personajes de Rick & Morty</h1>
       <Routes>
         <Route path='/' element={
           <>
-            <Filters handleSearch={handleSearch} searchByName={searchByName} />
+            <Filters handleSearch={handleSearch} searchByName={searchByName} species={getSpecies()} />
             {filteredCharacters.length > 0 ? <CharacterList characters={filteredCharacters} /> : <p>No hay resultados para tu búsqueda</p>}
           </>
         } />
