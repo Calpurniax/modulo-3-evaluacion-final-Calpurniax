@@ -9,7 +9,7 @@ import CharacterDetail from './CharacterDetail';
 function App() {
   const [characters, setCharacters] = useState([]);
   const [searchByName, setSeachByName] = useState('');
-  const [searchBySpecies, setSearchBySpecies] = useState('');
+  const [searchBySpecies, setSearchBySpecies] = useState('all');
 
 
   //llamada a la API
@@ -71,7 +71,7 @@ function App() {
       <Routes>
         <Route path='/' element={
           <>
-            <Filters handleSearch={handleSearch} searchByName={searchByName} species={getSpecies()} handleSpecie={handleSpecie} />
+            <Filters handleSearch={handleSearch} searchByName={searchByName} species={getSpecies()} handleSpecie={handleSpecie} searchBySpecies={searchBySpecies} />
             {filteredCharacters.length > 0 ? <CharacterList characters={filteredCharacters} /> : <p>No hay resultados para tu búsqueda</p>}
           </>
         } />
