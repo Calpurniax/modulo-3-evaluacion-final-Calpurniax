@@ -1,8 +1,9 @@
-const FilterBySpecies = ({ species }) => {
+const FilterBySpecies = ({ species, handleSpecie }) => {
 
     const handleSelect = (ev) => {
         ev.preventDefault()
-        // handleSearch(ev.target.value.toLowerCase())
+        handleSpecie(ev.target.value)
+
     }
     const renderSpecies = () => {
         return species.map((eachSpecie, index) => < option key={index} value={eachSpecie}> {eachSpecie}</option >)

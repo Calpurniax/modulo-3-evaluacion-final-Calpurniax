@@ -9,7 +9,7 @@ import CharacterDetail from './CharacterDetail';
 function App() {
   const [characters, setCharacters] = useState([]);
   const [searchByName, setSeachByName] = useState('');
-  //const [species, setSpecies] = useState([]);
+  const [searchBySpecies, setSearchBySpecies] = useState('');
 
 
   //llamada a la API
@@ -17,16 +17,17 @@ function App() {
     getCharacters().then((data) => {
       setCharacters(data)
     })
-
-
   }, []);
 
-  //recibe el input de búsqueda y lo guarda
+  //reciben los input de búsqueda y lo guardan
   const handleSearch = (value) => {
     setSeachByName(value)
   }
+  const handleSpecie = (value) => {
+    setSearchBySpecies(value)
+  }
 
-  //filtrar el array según el input de búsqueda
+  //filtrar el array según los input
   const filteredCharacters = characters
     .sort((a, b) => {
       const nameA = a.name.toLowerCase();
@@ -46,23 +47,31 @@ function App() {
         return true
       }
     })
+    .filter((character) => {
+      return searchBySpecies === 'all' ? true : character.species === (searchBySpecies)
+
+    })
+
   //crear el array de species
   const getSpecies = () => {
     const ArrayofSpecies = characters.map(each => each.species)
-    const filterSpecies = ArrayofSpecies.filter((each, index) => {
-      return ArrayofSpecies.indexOf(each) === index;
+    const filterSpecies = ArrayofSpecies
+      .sort()
+      .filter((each, index) => {
+        return ArrayofSpecies.indexOf(each) === index;
 
-    })
+      })
     return filterSpecies
 
   }
+
   return (
     <div className='App'>
       <h1>Personajes de Rick & Morty</h1>
       <Routes>
         <Route path='/' element={
           <>
-            <Filters handleSearch={handleSearch} searchByName={searchByName} species={getSpecies()} />
+            <Filters handleSearch={handleSearch} searchByName={searchByName} species={getSpecies()} handleSpecie={handleSpecie} />
             {filteredCharacters.length > 0 ? <CharacterList characters={filteredCharacters} /> : <p>No hay resultados para tu búsqueda</p>}
           </>
         } />
