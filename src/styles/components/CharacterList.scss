@@ -1,0 +1,9 @@
+@import "../core/mixin.scss";
+
+.list {
+    @include tablet {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}

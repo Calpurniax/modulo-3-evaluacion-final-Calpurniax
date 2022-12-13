@@ -1,3 +1,4 @@
+import '../styles/components/CharacterList.scss';
 import CharacterCard from "./CharacterCard";
 import PropTypes from 'prop-types';
 
@@ -9,7 +10,7 @@ const CharacterList = ({ characters }) => {
     }
     return (
         <section>
-            <ul>{renderList()}</ul>
+            <ul className="list">{renderList()}</ul>
         </section>
     )
 };

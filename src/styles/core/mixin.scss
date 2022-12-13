@@ -1,8 +1,12 @@
+@import "./variables.scss";
+
 @mixin tablet {
     @media all and (min-width:768px) {
         @content
     }
 }
+
+;
 
 @mixin desktop {
     @media all and (min-width:1200px) {
@@ -10,9 +14,15 @@
     }
 }
 
+;
+
 @mixin flexcolumn {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+@mixin borderbottom {
+    border-bottom: solid 0.1rem $border-color;
 }
