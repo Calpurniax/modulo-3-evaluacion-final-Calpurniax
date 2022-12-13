@@ -1,6 +1,8 @@
 import '../styles/components/CharacterDetail.scss';
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import PropTypes from 'prop-types';
+
 const CharacterDetail = ({ characters }) => {
     const { id } = useParams()
     if (characters.length > 0) {
@@ -30,4 +32,8 @@ const CharacterDetail = ({ characters }) => {
         return <p>Cargando personaje</p>
     }
 
-}; export default CharacterDetail
+};
+CharacterDetail.propTypes = {
+    characters: PropTypes.array,
+}
+export default CharacterDetail

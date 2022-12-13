@@ -1,9 +1,9 @@
-const FilterBySpecies = ({ species, handleSpecie, searchBySpecies }) => {
+import PropTypes from 'prop-types';
 
+const FilterBySpecies = ({ species, handleSpecie, searchBySpecies }) => {
     const handleSelect = (ev) => {
         ev.preventDefault()
         handleSpecie(ev.target.value)
-
     }
     const renderSpecies = () => {
         return species.map((eachSpecie, index) => < option key={index} value={eachSpecie} > {eachSpecie} </option >)
@@ -19,4 +19,9 @@ const FilterBySpecies = ({ species, handleSpecie, searchBySpecies }) => {
         </>
     )
 };
+FilterBySpecies.propTypes = {
+    handleSpecie: PropTypes.func,
+    searchBySpecies: PropTypes.string,
+    species: PropTypes.array,
+}
 export default FilterBySpecies

@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
+
 const CharacterCard = ({ character }) => {
-
     return (
-
         <li key={character.id}>
             <Link to={`/CharacterDetail/${character.id}`}>
                 <article id={character.id}>
@@ -15,5 +15,8 @@ const CharacterCard = ({ character }) => {
         </li>
     )
 
+}
+CharacterCard.propTypes = {
+    characters: PropTypes.object,
 }
 export default CharacterCard

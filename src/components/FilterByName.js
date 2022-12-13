@@ -1,5 +1,6 @@
-const FilterByName = ({ handleSearch, searchByName }) => {
+import PropTypes from 'prop-types';
 
+const FilterByName = ({ handleSearch, searchByName }) => {
     const handleInput = (ev) => {
         ev.preventDefault()
         handleSearch(ev.target.value.toLowerCase())
@@ -11,4 +12,8 @@ const FilterByName = ({ handleSearch, searchByName }) => {
         </>
     )
 };
+FilterByName.propTypes = {
+    handleSearch: PropTypes.func,
+    searchByName: PropTypes.string,
+}
 export default FilterByName
