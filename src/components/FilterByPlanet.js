@@ -1,8 +1,9 @@
+import PropTypes from 'prop-types';
+
 const FilterByPlanet = ({ planets, handlePlanet, searchByPlanet }) => {
     const handleChechbox = (event) => {
         handlePlanet(event.target.value)
     }
-
     const renderInput = () => {
         if (planets.length > 0)
             return planets.map((eachPlanet, index) => {
@@ -19,6 +20,11 @@ const FilterByPlanet = ({ planets, handlePlanet, searchByPlanet }) => {
             <label className="form__planet__label" htmlFor="planet">Filtrar por origen</label>
             <ul className="form__planet__ul">{renderInput()}</ul>
         </div>
-
     )
-}; export default FilterByPlanet
+};
+FilterByPlanet.propTypes = {
+    planets: PropTypes.array,
+    handlePlanet: PropTypes.func,
+    searchByPlanet: PropTypes.array,
+}
+export default FilterByPlanet

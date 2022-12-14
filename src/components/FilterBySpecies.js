@@ -20,8 +20,9 @@ const FilterBySpecies = ({ species, handleSpecie, searchBySpecies }) => {
     )
 };
 FilterBySpecies.propTypes = {
+    species: PropTypes.array,
     handleSpecie: PropTypes.func,
     searchBySpecies: PropTypes.string,
-    species: PropTypes.array,
+
 }
 export default FilterBySpecies

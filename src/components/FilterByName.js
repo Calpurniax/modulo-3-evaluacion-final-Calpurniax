@@ -1,3 +1,4 @@
+import Input from './Input';
 import PropTypes from 'prop-types';
 
 const FilterByName = ({ handleSearch, searchByName }) => {
@@ -8,7 +9,12 @@ const FilterByName = ({ handleSearch, searchByName }) => {
     return (
         <div className='form__name'>
             <label htmlFor="name" className='form__name__label'>Busca por nombre</label>
-            <input type="text" name="name" id="name" onInput={handleInput} value={searchByName} />
+            <Input
+                inputName='name'
+                inputId='name'
+                onInput={handleInput}
+                value={searchByName}
+            />
         </div>
     )
 };

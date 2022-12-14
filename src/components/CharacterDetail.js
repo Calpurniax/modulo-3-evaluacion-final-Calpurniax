@@ -33,4 +33,5 @@ const CharacterDetail = ({ characters }) => {
 CharacterDetail.propTypes = {
     characters: PropTypes.array,
 }
+
 export default CharacterDetail
