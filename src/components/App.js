@@ -29,13 +29,13 @@ function App() {
     setSearchBySpecies(value)
   }
   const handlePlanet = (value) => {
-    debugger;
     if (searchByPlanet.includes(value)) {
       const index = searchByPlanet.indexOf(value)
       searchByPlanet.splice(index, 1);
       setSearchByPlanet([...searchByPlanet])
+    } else {
+      setSearchByPlanet([...searchByPlanet, value])
     }
-    setSearchByPlanet([...searchByPlanet, value])
   }
 
   //filtrar el array según los input
