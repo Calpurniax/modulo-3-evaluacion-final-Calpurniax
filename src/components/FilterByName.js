@@ -1,4 +1,6 @@
+//Components
 import Input from './Input';
+//PropTypes
 import PropTypes from 'prop-types';
 
 const FilterByName = ({ handleSearch, searchByName }) => {

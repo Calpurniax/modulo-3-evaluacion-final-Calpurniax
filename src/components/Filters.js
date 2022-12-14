@@ -1,7 +1,10 @@
+//Styles
 import '../styles/components/Filters.scss';
+//Components
 import FilterByName from "./FilterByName";
 import FilterBySpecies from "./FilterBySpecies";
 import FilterByPlanet from './FilterByPlanet';
+//PropTypes
 import PropTypes from 'prop-types';
 
 const Filters = ({ species, handleSearch, searchByName, handleSpecie, searchBySpecies, planets, handlePlanet, searchByPlanet }) => {

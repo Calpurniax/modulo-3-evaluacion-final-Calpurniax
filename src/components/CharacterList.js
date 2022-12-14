@@ -1,5 +1,8 @@
+//Styles
 import '../styles/components/CharacterList.scss';
+//Components
 import CharacterCard from "./CharacterCard";
+//PropTypes
 import PropTypes from 'prop-types';
 
 const CharacterList = ({ characters }) => {

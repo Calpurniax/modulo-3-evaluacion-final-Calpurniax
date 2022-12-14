@@ -1,6 +1,9 @@
+//Styles
 import '../styles/components/CharacterDetail.scss';
+//Router
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+//PropTypes
 import PropTypes from 'prop-types';
 
 const CharacterDetail = ({ characters }) => {
@@ -33,5 +36,4 @@ const CharacterDetail = ({ characters }) => {
 CharacterDetail.propTypes = {
     characters: PropTypes.array,
 }
-
 export default CharacterDetail

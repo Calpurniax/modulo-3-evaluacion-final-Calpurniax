@@ -1,3 +1,4 @@
+//PropTypes
 import PropTypes from 'prop-types';
 
 const Input = (props) => {

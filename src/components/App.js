@@ -1,11 +1,16 @@
+//Styles
 import '../styles/App.scss';
+//hooks
 import { useState, useEffect } from 'react';
+//Fetch
 import { getCharacters } from '../services/api';
+//Components
 import CharacterList from './CharacterList';
 import Filters from './Filters';
-import { Routes, Route } from "react-router-dom";
 import CharacterDetail from './CharacterDetail';
 import Header from './Header';
+//Router 
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -14,14 +19,14 @@ function App() {
   const [searchByPlanet, setSearchByPlanet] = useState([]);
 
 
-  //llamada a la API
+  //call to API
   useEffect(() => {
     getCharacters().then((data) => {
       setCharacters(data)
     })
   }, []);
 
-  //reciben los input de búsqueda y lo guardan
+  //handle search form inputs
   const handleSearch = (value) => {
     setSeachByName(value)
   }
@@ -38,7 +43,7 @@ function App() {
     }
   }
 
-  //filtrar el array según los input
+  //Array filters
   const filteredCharacters = characters
     .sort((a, b) => {
       const nameA = a.name.toLowerCase();
@@ -69,7 +74,7 @@ function App() {
       else return true
     })
 
-  //crear el array de species
+  //Create an array for species
   const getSpecies = () => {
     const arrayOfSpecies = characters.map(each => each.species)
     const filterSpecies = arrayOfSpecies
@@ -81,7 +86,7 @@ function App() {
     return filterSpecies
 
   }
-  //crear el array de orígenes
+  //Create an array for planets
   const getPlanets = () => {
     const arrayOfPlanets = characters.map(each => each.origin)
     const filterPlanets = arrayOfPlanets

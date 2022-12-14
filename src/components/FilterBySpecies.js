@@ -1,4 +1,4 @@
-
+//PropTypes
 import PropTypes from 'prop-types';
 
 const FilterBySpecies = ({ species, handleSpecie, searchBySpecies }) => {
