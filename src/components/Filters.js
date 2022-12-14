@@ -13,7 +13,6 @@ const Filters = ({ species, handleSearch, searchByName, handleSpecie, searchBySp
                 <FilterByName handleSearch={handleSearch} searchByName={searchByName} />
             </div>
             <FilterByPlanet planets={planets} handlePlanet={handlePlanet} searchByPlanet={searchByPlanet} />
-
         </form>
     )
 };
