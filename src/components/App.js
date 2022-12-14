@@ -62,6 +62,12 @@ function App() {
       return searchBySpecies === 'all' ? true : character.species === (searchBySpecies)
 
     })
+    .filter((character) => {
+      if (searchByPlanet.length > 0) {
+        return searchByPlanet.includes(character.origin)
+      }
+      else return true
+    })
 
   //crear el array de species
   const getSpecies = () => {
