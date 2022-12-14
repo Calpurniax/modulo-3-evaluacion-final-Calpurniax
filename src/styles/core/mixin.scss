@@ -2,19 +2,15 @@
 
 @mixin tablet {
     @media all and (min-width:768px) {
-        @content
+        @content;
     }
 }
-
-;
 
 @mixin desktop {
     @media all and (min-width:1200px) {
-        @content
+        @content;
     }
 }
-
-;
 
 @mixin flexcolumn {
     display: flex;

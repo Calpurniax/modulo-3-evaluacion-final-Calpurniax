@@ -8,8 +8,10 @@ const Filters = ({ handleSearch, searchByName, species, handleSpecie, searchBySp
     const handleSubmit = (ev) => { ev.preventDefault() }
     return (
         <form onSubmit={handleSubmit} className='form'>
-            <FilterBySpecies species={species} handleSpecie={handleSpecie} searchBySpecies={searchBySpecies} />
-            <FilterByName handleSearch={handleSearch} searchByName={searchByName} />
+            <div className='form__filter'>
+                <FilterBySpecies species={species} handleSpecie={handleSpecie} searchBySpecies={searchBySpecies} />
+                <FilterByName handleSearch={handleSearch} searchByName={searchByName} />
+            </div>
             <FilterByPlanet planets={planets} handlePlanet={handlePlanet} searchByPlanet={searchByPlanet} />
 
         </form>

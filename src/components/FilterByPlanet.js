@@ -16,8 +16,8 @@ const FilterByPlanet = ({ planets, handlePlanet, searchByPlanet }) => {
     }
     return (
         <div>
-            <label htmlFor="planet">Filtrar por origen</label>
-            <ul>{renderInput()}</ul>
+            <label className="form__planet__label" htmlFor="planet">Filtrar por origen</label>
+            <ul className="form__planet__ul">{renderInput()}</ul>
         </div>
 
     )

@@ -24,10 +24,10 @@ const CharacterDetail = ({ characters }) => {
                 </section >
             )
         } else {
-            return <p>Lo sentimos, no existe este personaje</p>
+            return <p className='detail__error__msg'>Lo sentimos, no existe este personaje</p>
         }
     } else {
-        return <p>Cargando personaje</p>
+        return <p className='detail__error__msg'>Cargando personaje</p>
     }
 };
 CharacterDetail.propTypes = {
