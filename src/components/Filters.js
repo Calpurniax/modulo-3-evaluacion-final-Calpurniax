@@ -4,10 +4,12 @@ import '../styles/components/Filters.scss';
 import FilterByName from "./FilterByName";
 import FilterBySpecies from "./FilterBySpecies";
 import FilterByPlanet from './FilterByPlanet';
+import FilterByLocation from './FilterByLocation';
 //PropTypes
 import PropTypes from 'prop-types';
 
-const Filters = ({ species, handleSearch, searchByName, handleSpecie, searchBySpecies, planets, handlePlanet, searchByPlanet }) => {
+
+const Filters = ({ species, handleSearch, searchByName, handleSpecie, searchBySpecies, planets, handlePlanet, searchByPlanet, handleLocation, searchByLocation }) => {
     const handleSubmit = (ev) => { ev.preventDefault() }
     return (
         <form onSubmit={handleSubmit} className='form'>
@@ -16,6 +18,7 @@ const Filters = ({ species, handleSearch, searchByName, handleSpecie, searchBySp
                 <FilterByName handleSearch={handleSearch} searchByName={searchByName} />
             </div>
             <FilterByPlanet planets={planets} handlePlanet={handlePlanet} searchByPlanet={searchByPlanet} />
+            <FilterByLocation handleLocation={handleLocation} searchByLocation={searchByLocation} />
         </form>
     )
 };

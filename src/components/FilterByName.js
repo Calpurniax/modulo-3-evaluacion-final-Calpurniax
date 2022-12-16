@@ -16,6 +16,7 @@ const FilterByName = ({ handleSearch, searchByName }) => {
                 inputId='name'
                 onInput={handleInput}
                 value={searchByName}
+                placeHolder={'Paquita Salas'}
             />
         </div>
     )
