@@ -15,7 +15,6 @@ const CharacterCard = ({ character }) => {
             </Link>
         </li>
     )
-
 }
 CharacterCard.propTypes = {
     characters: PropTypes.object,

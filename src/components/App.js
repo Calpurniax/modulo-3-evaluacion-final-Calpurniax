@@ -14,38 +14,36 @@ import { Routes, Route } from "react-router-dom";
 
 function App() {
   const [characters, setCharacters] = useState([]);
-  const [searchByName, setSeachByName] = useState('');
-  const [searchBySpecies, setSearchBySpecies] = useState('all');
-  const [searchByPlanet, setSearchByPlanet] = useState([]);
-  const [searchByLocation, setSearchByLocation] = useState(false);
-
-
+  const [filters, setFilters] = useState({
+    byName: '',
+    bySpecies: 'all',
+    byPlanet: ([]),
+    byLocation: (false)
+  })
   //call to API
   useEffect(() => {
     getCharacters().then((data) => {
       setCharacters(data)
     })
   }, []);
-
-  //handle search form inputs
-  const handleSearch = (value) => {
-    setSeachByName(value)
-  }
-  const handleSpecie = (value) => {
-    setSearchBySpecies(value)
-  }
-  const handlePlanet = (value) => {
-    if (searchByPlanet.includes(value)) {
-      const index = searchByPlanet.indexOf(value)
-      searchByPlanet.splice(index, 1);
-      setSearchByPlanet([...searchByPlanet])
+  //handle filter object
+  const handleSearch = (value, name) => {
+    console.log(value, name)
+    if (name === 'byPlanet') {
+      if (filters.byPlanet.includes(value)) {
+        const index = filters.byPlanet.indexOf(value)
+        filters.byPlanet.splice(index, 1);
+        setFilters({ ...filters })
+      } else {
+        const newPlanet = []
+        newPlanet.push(...filters.byPlanet)
+        newPlanet.push(value)
+        setFilters({ ...filters, 'byPlanet': newPlanet })
+      }
     } else {
-      setSearchByPlanet([...searchByPlanet, value])
+      setFilters({ ...filters, [name]: value })
     }
   }
-  const handleLocation = (value) => {
-    setSearchByLocation(value)
-  };
 
   //Array filters
   const filteredCharacters = characters
@@ -61,24 +59,24 @@ function App() {
       }
     })
     .filter((character) => {
-      if (searchByName !== '') {
-        return character.name.toLowerCase().includes(searchByName)
+      if (filters.byName !== '') {
+        return character.name.toLowerCase().includes(filters.byName)
       } else {
         return true
       }
     })
     .filter((character) => {
-      return searchBySpecies === 'all' ? true : character.species === (searchBySpecies)
+      return filters.bySpecies === 'all' ? true : character.species === (filters.bySpecies)
 
     })
     .filter((character) => {
-      if (searchByPlanet.length > 0) {
-        return searchByPlanet.includes(character.origin)
+      if (filters.byPlanet.length > 0) {
+        return filters.byPlanet.includes(character.origin)
       }
       else return true
     })
     .filter((character) => {
-      if (searchByLocation) {
+      if (filters.byLocation) {
         return character.location === character.origin
       }
       return true
@@ -91,7 +89,6 @@ function App() {
       .sort()
       .filter((each, index) => {
         return arrayOfSpecies.indexOf(each) === index;
-
       })
     return filterSpecies
 
@@ -112,7 +109,7 @@ function App() {
       <Routes>
         <Route path='/' element={
           <>
-            <Filters handleSearch={handleSearch} searchByName={searchByName} species={getSpecies()} handleSpecie={handleSpecie} searchBySpecies={searchBySpecies} planets={getPlanets()} handlePlanet={handlePlanet} searchByPlanet={searchByPlanet} handleLocation={handleLocation} searchByLocation={searchByLocation} />
+            <Filters handleSearch={handleSearch} species={getSpecies()} planets={getPlanets()} filters={filters} />
             {filteredCharacters.length > 0 ? <CharacterList characters={filteredCharacters} /> : <p className='app__error__msg'>No hay resultados para tu búsqueda</p>}
           </>
         } />
@@ -121,5 +118,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

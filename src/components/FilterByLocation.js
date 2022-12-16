@@ -3,16 +3,16 @@ import Checkbox from './Checkbox';
 //PropTypes
 import PropTypes from 'prop-types';
 
-const FilterByLocation = ({ handleLocation, searchByLocation }) => {
+const FilterByLocation = ({ handleSearch, filters }) => {
     const handleChechboxLocation = (ev) => {
         console.log(ev.target.value)
-        const status = (!searchByLocation)
-        handleLocation(status)
+        const status = (!filters.byLocation)
+        handleSearch(status, ev.target.name)
     };
     return (
         <div className='form__location'>
             <label htmlFor="location">Mira sólo los personajes que están en su sitio de origen</label>
-            <Checkbox name={'location'} id={'location'} value={'location'} onChange={handleChechboxLocation} checked={searchByLocation} />
+            <Checkbox name={'byLocation'} id={'location'} value={'location'} onChange={handleChechboxLocation} checked={filters.byLocation} />
         </div>
     )
 };

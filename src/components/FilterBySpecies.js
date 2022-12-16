@@ -1,10 +1,10 @@
 //PropTypes
 import PropTypes from 'prop-types';
 
-const FilterBySpecies = ({ species, handleSpecie, searchBySpecies }) => {
+const FilterBySpecies = ({ species, handleSearch, filters }) => {
     const handleSelect = (ev) => {
         ev.preventDefault()
-        handleSpecie(ev.target.value)
+        handleSearch(ev.target.value, ev.target.name)
     }
     const renderSpecies = () => {
         return species.map((eachSpecie, index) => < option key={index} value={eachSpecie} > {eachSpecie} </option >)
@@ -12,7 +12,7 @@ const FilterBySpecies = ({ species, handleSpecie, searchBySpecies }) => {
     return (
         <div className='form__species'>
             <label htmlFor="species">Busca por especie</label>
-            <select name="species" id="species" onChange={handleSelect} value={searchBySpecies}>
+            <select name="bySpecies" id="species" onChange={handleSelect} value={filters.bySpecies}>
                 <option value='all'></option>
                 {renderSpecies()}
             </select>

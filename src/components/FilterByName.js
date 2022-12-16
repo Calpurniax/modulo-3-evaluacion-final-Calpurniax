@@ -3,20 +3,20 @@ import Input from './Input';
 //PropTypes
 import PropTypes from 'prop-types';
 
-const FilterByName = ({ handleSearch, searchByName }) => {
+const FilterByName = ({ handleSearch, filters }) => {
     const handleInput = (ev) => {
         ev.preventDefault()
-        handleSearch(ev.target.value.toLowerCase())
+        handleSearch(ev.target.value, ev.target.name)
     }
     return (
         <div className='form__name'>
             <label htmlFor="name" className='form__name__label'>Busca por nombre</label>
             <Input
                 cssClass='form__name__input'
-                inputName='name'
+                inputName='byName'
                 inputId='name'
                 onInput={handleInput}
-                value={searchByName}
+                value={filters.byName}
                 placeHolder={'Paquita Salas'}
             />
         </div>

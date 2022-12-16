@@ -1,17 +1,18 @@
+//Components
+import Checkbox from './Checkbox';
 //PropTypes
 import PropTypes from 'prop-types';
-import Checkbox from './Checkbox';
 
-const FilterByPlanet = ({ planets, handlePlanet, searchByPlanet }) => {
-    const handleChechbox = (event) => {
-        handlePlanet(event.target.value)
+const FilterByPlanet = ({ planets, handleSearch, filters }) => {
+    const handleCheckbox = (event) => {
+        handleSearch(event.target.value, event.target.name)
     }
     const renderInput = () => {
         if (planets.length > 0)
             return planets.map((eachPlanet, index) => {
                 return (
                     <li key={index}>
-                        <Checkbox name={eachPlanet} id={eachPlanet} value={eachPlanet} onChange={handleChechbox} checked={searchByPlanet.includes(eachPlanet) ? true : false} />
+                        <Checkbox name='byPlanet' id={eachPlanet} value={eachPlanet} onChange={handleCheckbox} checked={filters.byPlanet.includes(eachPlanet) ? true : false} />
                         {eachPlanet}
                     </li>
                 )
@@ -30,3 +31,4 @@ FilterByPlanet.propTypes = {
     searchByPlanet: PropTypes.array,
 }
 export default FilterByPlanet
+//
