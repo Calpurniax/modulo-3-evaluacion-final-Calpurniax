@@ -31,5 +31,7 @@ Filters.propTypes = {
     planets: PropTypes.array,
     handlePlanet: PropTypes.func,
     searchByPlanet: PropTypes.array,
+    handleLocation: PropTypes.func,
+    searchByLocation: PropTypes.bool,
 }
 export default Filters

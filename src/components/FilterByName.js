@@ -12,6 +12,7 @@ const FilterByName = ({ handleSearch, searchByName }) => {
         <div className='form__name'>
             <label htmlFor="name" className='form__name__label'>Busca por nombre</label>
             <Input
+                cssClass='form__name__input'
                 inputName='name'
                 inputId='name'
                 onInput={handleInput}
