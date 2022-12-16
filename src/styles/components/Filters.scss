@@ -10,6 +10,7 @@
         flex-direction: row;
         justify-content: space-around;
         margin-bottom: 5%;
+        align-items: flex-start;
     }
 
     &__filter {
@@ -19,22 +20,28 @@
         }
     }
 
-
     &__species {
+        padding-bottom: 1.2rem;
         display: flex;
         flex-direction: row;
         gap: 0.5rem;
 
         @include tablet {
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
         }
-
     }
 
     &__name {
+        padding-bottom: 1rem;
         display: flex;
         flex-direction: column;
-        gap: 0.3rem
+        gap: 0.3rem;
+
+        &__input {
+            &::placeholder {
+                color: #0d515e;
+            }
+        }
     }
 
     &__planet__label {
@@ -46,5 +53,17 @@
     &__planet__ul {
         margin-top: 1rem;
         font-size: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    &__location {
+        font-size: 1.2rem;
+        margin-left: 7%;
+        margin-right: 5%;
+
+        @include tablet {
+            margin: 0;
+            max-width: 30%;
+        }
     }
 }

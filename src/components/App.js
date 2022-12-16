@@ -17,6 +17,7 @@ function App() {
   const [searchByName, setSeachByName] = useState('');
   const [searchBySpecies, setSearchBySpecies] = useState('all');
   const [searchByPlanet, setSearchByPlanet] = useState([]);
+  const [searchByLocation, setSearchByLocation] = useState(false);
 
 
   //call to API
@@ -42,6 +43,9 @@ function App() {
       setSearchByPlanet([...searchByPlanet, value])
     }
   }
+  const handleLocation = (value) => {
+    setSearchByLocation(value)
+  };
 
   //Array filters
   const filteredCharacters = characters
@@ -73,6 +77,12 @@ function App() {
       }
       else return true
     })
+    .filter((character) => {
+      if (searchByLocation) {
+        return character.location === character.origin
+      }
+      return true
+    })
 
   //Create an array for species
   const getSpecies = () => {
@@ -102,7 +112,7 @@ function App() {
       <Routes>
         <Route path='/' element={
           <>
-            <Filters handleSearch={handleSearch} searchByName={searchByName} species={getSpecies()} handleSpecie={handleSpecie} searchBySpecies={searchBySpecies} planets={getPlanets()} handlePlanet={handlePlanet} searchByPlanet={searchByPlanet} />
+            <Filters handleSearch={handleSearch} searchByName={searchByName} species={getSpecies()} handleSpecie={handleSpecie} searchBySpecies={searchBySpecies} planets={getPlanets()} handlePlanet={handlePlanet} searchByPlanet={searchByPlanet} handleLocation={handleLocation} searchByLocation={searchByLocation} />
             {filteredCharacters.length > 0 ? <CharacterList characters={filteredCharacters} /> : <p className='app__error__msg'>No hay resultados para tu búsqueda</p>}
           </>
         } />

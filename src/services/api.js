@@ -11,6 +11,7 @@ function getCharacters() {
                     name: obj.name,
                     species: obj.species,
                     origin: obj.origin.name,
+                    location: obj.location.name,
                     status: obj.status,
                     episodes: obj.episode.length,
                 }
