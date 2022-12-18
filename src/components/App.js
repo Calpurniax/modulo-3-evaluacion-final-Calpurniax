@@ -28,14 +28,14 @@ function App() {
   }, []);
   //handle filter object
   const handleSearch = (value, name) => {
-    console.log(value, name)
+
     if (name === 'byPlanet') {
       if (filters.byPlanet.includes(value)) {
         const index = filters.byPlanet.indexOf(value)
         filters.byPlanet.splice(index, 1);
         setFilters({ ...filters })
       } else {
-        const newPlanet = []
+        const newPlanet = [] //probar a simplificar esto
         newPlanet.push(...filters.byPlanet)
         newPlanet.push(value)
         setFilters({ ...filters, 'byPlanet': newPlanet })
@@ -47,20 +47,9 @@ function App() {
 
   //Array filters
   const filteredCharacters = characters
-    .sort((a, b) => {
-      const nameA = a.name.toLowerCase();
-      const nameB = b.name.toLowerCase();
-      if (nameA < nameB) {
-        return -1
-      } else if (nameA > nameB) {
-        return 1
-      } else {
-        return 0
-      }
-    })
     .filter((character) => {
       if (filters.byName !== '') {
-        return character.name.toLowerCase().includes(filters.byName)
+        return character.name.toLowerCase().includes(filters.byName.toLowerCase())
       } else {
         return true
       }

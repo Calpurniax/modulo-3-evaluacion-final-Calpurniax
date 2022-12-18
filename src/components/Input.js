@@ -7,7 +7,7 @@ const Input = (props) => {
     )
 };
 Input.propTypes = {
-    //class= PropTypes.string,
+    cssClass: PropTypes.string,
     inputType: PropTypes.string.isRequired,
     inputName: PropTypes.string.isRequired,
     inputId: PropTypes.string,
